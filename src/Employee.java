@@ -152,4 +152,22 @@ public class Employee {
             }
         }
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", personalId=" + personalId +
+                ", responsibility='" + responsibility + '\'' +
+                ", nationalId='" + nationalId + '\'' +
+                ", password='" + password + '\'' +
+                ", username='" + username + '\'' +
+                ", employmentType='" + employmentType + '\'' +
+                ", vacation=" + vacation +
+                ", input=" + input +
+                ", fathersname='" + fathersname + '\'' +
+                ", education='" + education + '\'' +
+                '}';
+    }
 }
