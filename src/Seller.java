@@ -1,10 +1,12 @@
 public class Seller extends Employee {
 
     private static double basesalary;
+    private final double vacationdeduction=0.03;
 
-    public Seller(String name, String lastname, int personalId, String responsibility, String nationalItetd,
+    public Seller(String name, String lastname, int personalId, String responsibility, String nationalId,
                   String password, String username, String employmentType, String fathersname, String education, double basesalary) {
-        super(name, lastname, personalId, responsibility, nationalId, password, username, employmentType, fathersname, education);
+        super(name, lastname, personalId, responsibility,nationalId
+                , password, username, employmentType, fathersname, education);
         this.basesalary = basesalary;
     }
 
@@ -16,4 +18,10 @@ public class Seller extends Employee {
         return basesalary;
     }
 
+    @Override
+    public double getSalary() {
+        return getBasesalary();
+    }
+
+    public double salarywithvacation ;
 }

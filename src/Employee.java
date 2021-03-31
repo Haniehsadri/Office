@@ -12,6 +12,7 @@ public class Employee {
     private String username;
     private String employmentType;
     private int vacation = 0;
+    private double salary;
     Scanner input = new Scanner(System.in);
 
     public Employee(String name, String lastname, int personalId, String responsibility,
@@ -75,6 +76,11 @@ public class Employee {
         return education;
     }
 
+
+    public double getSalary() {
+        return salary;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -117,6 +123,10 @@ public class Employee {
 
     public void setFathersname(String fathersname) {
         this.fathersname = fathersname;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
     }
 
     public void setEducation(String education) {
@@ -168,6 +178,6 @@ public class Employee {
                 ", input=" + input +
                 ", fathersname='" + fathersname + '\'' +
                 ", education='" + education + '\'' +
-                '}';
+", salary =" +getSalary();
     }
 }
