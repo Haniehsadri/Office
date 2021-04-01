@@ -178,6 +178,6 @@ public class Employee {
                 ", input=" + input +
                 ", fathersname='" + fathersname + '\'' +
                 ", education='" + education + '\'' +
-", salary =" +getSalary();
+                ", salary =" + getSalary();
     }
 }

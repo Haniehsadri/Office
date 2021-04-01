@@ -23,5 +23,12 @@ public class Seller extends Employee {
         return getBasesalary();
     }
 
-    public double salarywithvacation ;
+    public double salarywithvacation (){
+        if (getVacation()<3){
+            return  getSalary();
+    }
+         else
+             {return( getSalary() -vacationdeduction *getVacation());}
+
+    }
 }
