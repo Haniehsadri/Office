@@ -141,7 +141,7 @@ public class Employee {
 
     }
 
-    public void Changepassword() {
+    public  void Changepassword() {
         while (true) {
             System.out.println("please enter your current password ");
             String currentpassword = input.next();
