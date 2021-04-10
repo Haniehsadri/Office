@@ -26,7 +26,16 @@ public class Office {
 
                 System.out.println("which one do you want to change? 1-username  2-password  3-name 4-family  5- national id ");
                 int changeinformation = input.nextInt();
-                switch
+                switch (changeinformation) {
+                    case 1:
+                        System.out.println("enter yor name");
+                        String newusername = input.next();
+                        employees.get(currentemployee).setUsername(newusername);
+                        break;
+                    case 2:
+                        
+
+                }
 
             }
         }
