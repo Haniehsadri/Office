@@ -3,9 +3,9 @@ public class Seller extends Employee {
     private static double basesalary;
     private final double vacationdeduction=0.03;
 
-    public Seller(String name, String lastname, int personalId, String responsibility, String nationalId,
+    public Seller(String name, String lastname, int personalId, String nationalId,
                   String password, String username, String employmentType, String fathersname, String education, double basesalary) {
-        super(name, lastname, personalId, responsibility,nationalId
+        super(name, lastname, personalId, nationalId
                 , password, username, employmentType, fathersname, education);
         this.basesalary = basesalary;
     }

@@ -4,9 +4,10 @@ public class HourlySeller extends Seller {
 
     public HourlySeller(String name, String lastname, int personalId, String responsibility, String nationalId,
                         String password, String username, String employmentType,
-                        String fathersname, String education, double basesalary) {
+                        String fathersname, String education, double basesalary,int Hours ) {
         super(name, lastname, personalId, responsibility, nationalId, password, username, employmentType,
                 fathersname, education, basesalary);
+        this.Hours=Hours;
     }
 
     public void setHours(int hours) {

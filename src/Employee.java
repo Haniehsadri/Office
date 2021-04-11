@@ -6,7 +6,7 @@ public class Employee {
     private String name;
     private String lastname;
     private int personalId;
-    private String responsibility;
+
     private String nationalId;
     private String password;
     private String username;
@@ -15,12 +15,12 @@ public class Employee {
     private double salary;
     Scanner input = new Scanner(System.in);
 
-    public Employee(String name, String lastname, int personalId, String responsibility,
+    public Employee(String name, String lastname, int personalId,
                     String nationalId, String password, String username, String employmentType, String fathersname, String education) {
         this.name = name;
         this.lastname = lastname;
         this.personalId = personalId;
-        this.responsibility = responsibility;
+
         setNationalId(nationalId);
         this.password = password;
         this.username = username;
@@ -44,9 +44,7 @@ public class Employee {
         return personalId;
     }
 
-    public String getResponsibility() {
-        return responsibility;
-    }
+
 
     public String getNationalId() {
         return nationalId;
@@ -93,9 +91,7 @@ public class Employee {
         this.personalId = personalId;
     }
 
-    public void setResponsibility(String responsibility) {
-        this.responsibility = responsibility;
-    }
+
 
     public void setNationalId(String nationalId) {
         if (IsNationalIdValid(nationalId)) {
@@ -169,7 +165,7 @@ public class Employee {
                 "name='" + name + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", personalId=" + personalId +
-                ", responsibility='" + responsibility + '\'' +
+
                 ", nationalId='" + nationalId + '\'' +
                 ", password='" + password + '\'' +
                 ", username='" + username + '\'' +
