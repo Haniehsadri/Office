@@ -8,17 +8,33 @@ public class Office {
 
 
     public static void main(String[] args) {
-
+        addmanager();
+        Scanner input=new Scanner(System.in);
+        System.out.println("welcome to office ,choose the given options :1-Manager  2-Employee");
+        int option=input.nextInt();
+        if(option==1){
+            signup();
+        }
+       if (option==2) {
+           Signin();
+       }
     }
 
     // this function is for ordinary staffs not for manager
     public static void Signin() {
+        int currentemployee;
         Scanner input = new Scanner(System.in);
+        while (true){
         System.out.println("please enter your username:");
         String username = input.next();
         System.out.println("please enter your password :");
         String password = input.next();
-        int currentemployee = findcurrentemployee(employees, username, password);
+         currentemployee = findcurrentemployee(employees, username, password);
+        if (currentemployee!=-1){
+            break;
+        }
+
+        }
         System.out.println(employees.get(currentemployee));
         while (true) {
             System.out.println(" Do you want to change your information?: 1- Yes  2- No thanks ");
@@ -95,16 +111,29 @@ public class Office {
                 String fathersname = input.next();
 
                 System.out.println("please enter emoloyment type: 1- commisionseller  2- hourlyseller  3-");
-                int employmenttype = input.nextInt();
-                if (employmenttype == 1) {
-                    String employmenttypee = "commisionseller";
-
+                int employmenttype1 = input.nextInt();
+                if (employmenttype1 == 1) {
+                    String employmenttype = "commisionseller";
                     System.out.println("enter basesalary :");
                     double basesalary = input.nextDouble();
                     CommisionSeller commisionSeller = new CommisionSeller(name, lastname, personalid
-                            , nationalid, password, username, education, fathersname, employmenttypee, basesalary);
+                            , nationalid, password, username, education, fathersname, employmenttype, basesalary);
                     employees.add(commisionSeller);
                     sellers.add(commisionSeller);
+
+                }
+                if (employmenttype1 == 2) {
+
+                    String employmenttype = "hourlyseller";
+                    System.out.println("enter basesalary :");
+                    double basesalary = input.nextDouble();
+                    System.out.println("enter hours:");
+                    int hours = input.nextInt();
+                    HourlySeller hourlySeller = new HourlySeller(name, lastname, personalid, nationalid, password, username, education
+                            , fathersname, employmenttype, basesalary, hours);
+                    employees.add(hourlySeller);
+                    sellers.add(hourlySeller);
+
 
                 }
 
@@ -114,14 +143,22 @@ public class Office {
     }
 
     public static int findcurrentemployee(ArrayList<Employee> employees, String username, String password) {
+
         for (int i = 0; i < employees.size(); i++) {
+
             if (employees.get(i).getUsername().equals(username) && employees.get(i).getPassword().equals(password)) {
                 return i;
             }
-            System.out.println("username or password is not correct ");
+
         }
+        System.out.println("username or password is not correct ");
         return -1;
     }
 
+public static void addmanager (){
+        Manager manager =new Manager("Hanieh","Sadri",12345,"4710668000",
+                "hhhh","haniehsadri","manager","yousef","bachelore");
+        employees.add(manager);
 
+    }
 }

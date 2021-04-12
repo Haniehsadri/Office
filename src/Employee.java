@@ -171,7 +171,7 @@ public class Employee {
                 ", username='" + username + '\'' +
                 ", employmentType='" + employmentType + '\'' +
                 ", vacation=" + vacation +
-                ", input=" + input +
+
                 ", fathersname='" + fathersname + '\'' +
                 ", education='" + education + '\'' +
                 ", salary =" + getSalary();
