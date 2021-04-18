@@ -138,8 +138,20 @@ public class Office {
                 }
 
 
+
             }
         }
+        System.out.println("do you want to add instrument? 1- yes  2 no ");
+         int yesorno=input.nextInt();
+        if(yesorno==1){
+            System.out.println("please enter the name of instrument :");
+            String nameOfInstrument=input.next();
+            System.out.println("please enter the price of instrument:");
+            double price=input.nextDouble();
+            Instrument instrument=new Instrument(nameOfInstrument,price);
+            Store.report();
+        }
+
     }
 
     public static int findcurrentemployee(ArrayList<Employee> employees, String username, String password) {

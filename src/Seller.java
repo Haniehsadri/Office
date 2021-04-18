@@ -32,10 +32,11 @@ public class Seller extends Employee {
 
     }
 
-    public void sell(String nameofinstrument) {
+    public void sell(Instrument instrument) {
         for (int i = 0; i < Store.store.size(); i++) {
-            if (Store.store.get(i).getName().equals(nameofinstrument)) {
+            if (Store.store.get(i).getName().equals(instrument.getName())) {
                 Store.store.get(i).setNumberOfInstrument(Store.store.get(i).getNumberOfInstrument()-1);
+                setBasesalary(getSalary()+10);
 
             }
             System.out.println("the instrument is not availavle in store ");

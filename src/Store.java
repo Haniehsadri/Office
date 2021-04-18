@@ -1,49 +1,24 @@
 import java.util.ArrayList;
 
 public class Store {
-    private String name;
-    private double price;
-    private static int numberOfInstrument;
-    public static ArrayList<Store> store=new ArrayList<>();
-    public Store(String name,double price) {
-        this.name=name;
-        this.price=price;
-        numberOfInstrument=1;
-      addinstrument();
-    }
+    public static ArrayList<Instrument> store=new ArrayList<>();
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public void setPrice(double price) {
-        price = price;
-    }
-    public void setNumberOfInstrument(int numberOfInstrument){
-        this.numberOfInstrument=numberOfInstrument;
-    }
-    public int getNumberOfInstrument(){
-        return numberOfInstrument;
-    }
-
-  //  public ArrayList<Store> getstore(){
-       // return store;
-   // }
-    public String getName() {
-        return name;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    private void addinstrument(){// chon dar khod object hastim az this estefade mikonim va dg lazem ni esm begirim
+    public static void addinstrument(Instrument instrument){
         for(int i=0;i<store.size();i++){
-            if (store.get(i).getName().equals(this.getName())){
-                store.get(i).numberOfInstrument++;
+            if (store.get(i).getName().equals(instrument.getName())){
+                store.get(i).setNumberOfInstrument(store.get(i).getNumberOfInstrument()+1);
                 return;
             }
         }
-        store.add(this);
+        store.add(instrument);
+    }
+
+    public static void report (){
+        for (int i=0;i<store.size();i++){
+            System.out.printf("nameof instrument : %s%n price of instrument: %2f %n numberofinstrument :%d",
+                    store.get(i).getName(),store.get(i).getPrice(),store.get(i).getNumberOfInstrument());
+        }
+
     }
 }
