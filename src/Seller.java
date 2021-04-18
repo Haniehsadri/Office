@@ -31,4 +31,15 @@ public class Seller extends Employee {
              {return( getSalary() -vacationdeduction *getVacation());}
 
     }
-}
+
+    public void sell(String nameofinstrument) {
+        for (int i = 0; i < Store.store.size(); i++) {
+            if (Store.store.get(i).getName().equals(nameofinstrument)) {
+                Store.store.get(i).setNumberOfInstrument(Store.store.get(i).getNumberOfInstrument()-1);
+
+            }
+            System.out.println("the instrument is not availavle in store ");
+            }
+
+        }
+    }
