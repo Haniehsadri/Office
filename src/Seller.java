@@ -32,7 +32,7 @@ public class Seller extends Employee {
 
     }
 
-    public void sell(Instrument instrument) {
+    public  void Sell(Instrument instrument) {
         for (int i = 0; i < Store.store.size(); i++) {
             if (Store.store.get(i).getName().equals(instrument.getName())) {
                 Store.store.get(i).setNumberOfInstrument(Store.store.get(i).getNumberOfInstrument()-1);

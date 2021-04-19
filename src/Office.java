@@ -31,11 +31,21 @@ public class Office {
         String password = input.next();
          currentemployee = findcurrentemployee(employees, username, password);
         if (currentemployee!=-1){
+
             break;
         }
 
         }
+        if (employees.get(currentemployee) instanceof Seller){
+            System.out.println("do you want to sell instrument? 1 -yes  2-no ");
+            System.out.println("the availability  of instruments are given in the next line: ");
+            Store.report();
+            System.out.println("which instument do you want to sell please enter the number of instrument");
+            int numberOfInstrument=input.nextInt();
+            ((Seller) employees.get(currentemployee)).Sell(Store.store.get(numberOfInstrument));
+        }
         System.out.println(employees.get(currentemployee));
+
         while (true) {
             System.out.println(" Do you want to change your information?: 1- Yes  2- No thanks ");
             int yesorno = input.nextInt();
@@ -110,7 +120,7 @@ public class Office {
                 System.out.println("enter fathersname: ");
                 String fathersname = input.next();
 
-                System.out.println("please enter emoloyment type: 1- commisionseller  2- hourlyseller  3-");
+                System.out.println("please enter emoloyment type: 1- commisionseller  2- hourlyseller  ");
                 int employmenttype1 = input.nextInt();
                 if (employmenttype1 == 1) {
                     String employmenttype = "commisionseller";
