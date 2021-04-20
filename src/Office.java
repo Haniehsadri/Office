@@ -10,6 +10,8 @@ public class Office {
     public static void main(String[] args) {
         addmanager();
         Scanner input=new Scanner(System.in);
+        while (true){
+
         System.out.println("welcome to office ,choose the given options :1-Manager  2-Employee");
         int option=input.nextInt();
         if(option==1){
@@ -18,6 +20,14 @@ public class Office {
        if (option==2) {
            Signin();
        }
+
+            System.out.println("do you want to exit the Office ? 1-yes 2-N0");
+       int yesorno=input.nextInt();
+       if(yesorno==1){
+           break;
+       }
+
+    }
     }
 
     // this function is for ordinary staffs not for manager
@@ -38,11 +48,14 @@ public class Office {
         }
         if (employees.get(currentemployee) instanceof Seller){
             System.out.println("do you want to sell instrument? 1 -yes  2-no ");
+            int yesorno=input.nextInt();
+            if (yesorno==1){
             System.out.println("the availability  of instruments are given in the next line: ");
             Store.report();
             System.out.println("which instument do you want to sell please enter the number of instrument");
             int numberOfInstrument=input.nextInt();
             ((Seller) employees.get(currentemployee)).Sell(Store.store.get(numberOfInstrument));
+        }
         }
         System.out.println(employees.get(currentemployee));
 
@@ -58,7 +71,7 @@ public class Office {
                 int changeinformation = input.nextInt();
                 switch (changeinformation) {
                     case 1:
-                        System.out.println("enter yor username:");
+                        System.out.println("enter your username:");
                         String newusername = input.next();
                         employees.get(currentemployee).setUsername(newusername);
                         break;
@@ -68,17 +81,17 @@ public class Office {
                         break;
 
                     case 3:
-                        System.out.println("enter yor name:");
+                        System.out.println("enter your name:");
                         String newname = input.next();
                         employees.get(currentemployee).setName(newname);
 
                     case 4:
-                        System.out.println("enter yor family:");
+                        System.out.println("enter your family:");
                         String newfamily = input.next();
                         employees.get(currentemployee).setName(newfamily);
 
                     case 5:
-                        System.out.println("enter yor nationalid:");
+                        System.out.println("enter your nationalid:");
                         String newnationalid = input.next();
                         employees.get(currentemployee).setName(newnationalid);
 
