@@ -126,7 +126,7 @@ public class Office {
                 String nationalid = input.next();
                 System.out.println("enter password:");
                 String password = input.next();
-                System.out.println("enter usernam");
+                System.out.println("enter username");
                 String username = input.next();
                 System.out.println("enter education: ");
                 String education = input.next();
@@ -172,6 +172,8 @@ public class Office {
             System.out.println("please enter the price of instrument:");
             double price=input.nextDouble();
             Instrument instrument=new Instrument(nameOfInstrument,price);
+
+
             Store.report();
         }
 

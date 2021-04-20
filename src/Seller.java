@@ -37,9 +37,9 @@ public class Seller extends Employee {
             if (Store.store.get(i).getName().equals(instrument.getName())) {
                 Store.store.get(i).setNumberOfInstrument(Store.store.get(i).getNumberOfInstrument()-1);
                 setBasesalary(getSalary()+10);
-
+                System.out.printf("you sold %s %n your salary increased to : %.2f ",instrument.getName(),getSalary());
             }
-            System.out.println("the instrument is not availavle in store ");
+           else{ System.out.println("the instrument is not availavle in store ");}
             }
 
         }
