@@ -21,7 +21,7 @@ public class Office {
            Signin();
        }
 
-            System.out.println("do you want to exit the Office ? 1-yes 2-N0");
+         //    System.out.println("do you want to exit the Office ? 1-yes 2-N0");
        int yesorno=input.nextInt();
        if(yesorno==1){
            break;
@@ -46,7 +46,7 @@ public class Office {
         }
 
         }
-        if (employees.get(currentemployee) instanceof Seller){
+        if (employees.get(currentemployee) instanceof CommisionSeller){
             System.out.println("do you want to sell instrument? 1 -yes  2-no ");
             int yesorno=input.nextInt();
             if (yesorno==1){
@@ -54,8 +54,15 @@ public class Office {
             Store.report();
             System.out.println("which instument do you want to sell please enter the number of instrument");
             int numberOfInstrument=input.nextInt();
-            ((Seller) employees.get(currentemployee)).Sell(Store.store.get(numberOfInstrument));
-        }
+            ((CommisionSeller) employees.get(currentemployee)).Sell(Store.store.get(numberOfInstrument));
+                ((CommisionSeller) employees.get(currentemployee)).setSalary(employees.get(currentemployee).getSalary()+
+                         ( (CommisionSeller)employees.get(currentemployee)).CommisionRate*Store.store.get(numberOfInstrument).getPrice());
+
+
+
+
+            }
+
         }
         System.out.println(employees.get(currentemployee));
 
@@ -100,6 +107,7 @@ public class Office {
 
 
             }
+            System.out.println(employees.get(currentemployee));
         }
 
     }
@@ -150,10 +158,10 @@ public class Office {
                     String employmenttype = "hourlyseller";
                     System.out.println("enter basesalary :");
                     double basesalary = input.nextDouble();
-                    System.out.println("enter hours:");
-                    int hours = input.nextInt();
+                  //  System.out.println("enter hours:");
+                 //   int hours = input.nextInt();
                     HourlySeller hourlySeller = new HourlySeller(name, lastname, personalid, nationalid, password, username, education
-                            , fathersname, employmenttype, basesalary, hours);
+                            , fathersname, employmenttype, basesalary);
                     employees.add(hourlySeller);
                     sellers.add(hourlySeller);
 
@@ -164,6 +172,7 @@ public class Office {
 
             }
         }
+        while (true){
         System.out.println("do you want to add instrument? 1- yes  2 no ");
          int yesorno=input.nextInt();
         if(yesorno==1){
@@ -172,6 +181,10 @@ public class Office {
             System.out.println("please enter the price of instrument:");
             double price=input.nextDouble();
             Instrument instrument=new Instrument(nameOfInstrument,price);
+            if (yesorno==2){
+                break;
+            }
+        }
 
 
             Store.report();

@@ -1,6 +1,6 @@
 public class CommisionSeller extends Seller {
 private int NumberOfsoldInstruments=0;
-private final double CommisionRate=.025;
+public final double CommisionRate=.025;
 
     public CommisionSeller(String name, String lastname, int personalId, 
                            String nationalId, String password, String username, String employmentType,
@@ -12,7 +12,7 @@ private final double CommisionRate=.025;
 
     @Override
     public double getSalary() {
-        return super.getSalary()+CommisionRate*NumberOfsoldInstruments;
+        return super.getSalary();
     }
 
 }
