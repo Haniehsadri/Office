@@ -16,7 +16,7 @@ public class Employee {
     Scanner input = new Scanner(System.in);
 
     public Employee(String name, String lastname, int personalId,
-                    String nationalId, String password, String username, String employmentType, String fathersname, String education) {
+                    String nationalId, String password, String username, String employmentType, String fathersname, String education,double salary) {
         this.name = name;
         this.lastname = lastname;
         this.personalId = personalId;
@@ -27,6 +27,7 @@ public class Employee {
         this.employmentType = employmentType;
         this.fathersname = fathersname;
         this.education = education;
+        this.salary=salary;
     }
 
     private String fathersname;
@@ -43,7 +44,6 @@ public class Employee {
     public int getPersonalId() {
         return personalId;
     }
-
 
 
     public String getNationalId() {
@@ -76,6 +76,7 @@ public class Employee {
 
 
     public double getSalary() {
+
         return salary;
     }
 
@@ -90,7 +91,6 @@ public class Employee {
     public void setPersonalId(int personalId) {
         this.personalId = personalId;
     }
-
 
 
     public void setNationalId(String nationalId) {
@@ -115,6 +115,9 @@ public class Employee {
 
     public void setVacation(int vacation) {
         this.vacation = vacation;
+        if (vacation > 3) {
+            setSalary(getSalary() - (vacation - 3) * 7);
+        }
     }
 
     public void setFathersname(String fathersname) {
@@ -137,7 +140,7 @@ public class Employee {
 
     }
 
-    public  void Changepassword() {
+    public void Changepassword() {
         while (true) {
             System.out.println("please enter your current password ");
             String currentpassword = input.next();
@@ -174,6 +177,6 @@ public class Employee {
 
                 ", fathersname='" + fathersname + '\'' +
                 ", education='" + education + '\'' +
-                ", salary =" + getSalary();
+                ", salary =" + getSalary()+" $";
     }
 }

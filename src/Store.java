@@ -16,7 +16,7 @@ public class Store {
 
     public static void report (){
         for (int i=0;i<store.size();i++){
-            System.out.printf(" %d nameof instrument : %s%n price of instrument: %2f %n availabilityofinstrument :%d%n",(i),
+            System.out.printf(" %d- nameof instrument : %s%n price of instrument: %2f %n availabilityofinstrument :%d%n",(i),
                     store.get(i).getName(),store.get(i).getPrice(),store.get(i).getNumberOfInstrument());
         }
 

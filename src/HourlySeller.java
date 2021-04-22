@@ -1,6 +1,6 @@
 public class HourlySeller extends Seller {
     private  final double HourlySalary=5.00;
-    private int Hours;
+    private double Hours;
 
     public HourlySeller(String name, String lastname, int personalId,  String nationalId,
                         String password, String username, String employmentType,
@@ -10,11 +10,11 @@ public class HourlySeller extends Seller {
 
     }
 
-    public void setHours(int hours) {
+    public void setHours(double hours) {
         Hours = hours;
     }
 
-    public int getHours() {
+    public double getHours() {
         return Hours;
     }
 

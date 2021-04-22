@@ -9,62 +9,63 @@ public class Office {
 
     public static void main(String[] args) {
         addmanager();
-        Scanner input=new Scanner(System.in);
-        while (true){
+        Scanner input = new Scanner(System.in);
+        while (true) {
 
-        System.out.println("welcome to office ,choose the given options :1-Manager  2-Employee");
-        int option=input.nextInt();
-        if(option==1){
-            signup();
+            System.out.println("welcome to office ,choose the given options :1-Manager  2-Employee");
+            int option = input.nextInt();
+            if (option == 1) {
+                signup();
+            }
+            if (option == 2) {
+                Signin();
+            }
+
+            //    System.out.println("do you want to exit the Office ? 1-yes 2-N0");
+            int yesorno = input.nextInt();
+            if (yesorno == 1) {
+                break;
+            }
+
         }
-       if (option==2) {
-           Signin();
-       }
-
-         //    System.out.println("do you want to exit the Office ? 1-yes 2-N0");
-       int yesorno=input.nextInt();
-       if(yesorno==1){
-           break;
-       }
-
-    }
     }
 
     // this function is for ordinary staffs not for manager
     public static void Signin() {
         int currentemployee;
         Scanner input = new Scanner(System.in);
-        while (true){
-        System.out.println("please enter your username:");
-        String username = input.next();
-        System.out.println("please enter your password :");
-        String password = input.next();
-         currentemployee = findcurrentemployee(employees, username, password);
-        if (currentemployee!=-1){
+        while (true) {
+            System.out.println("please enter your username:");
+            String username = input.next();
+            System.out.println("please enter your password :");
+            String password = input.next();
+            currentemployee = findcurrentemployee(employees, username, password);
+            if (currentemployee != -1) {
 
-            break;
-        }
+                break;
+            }
 
         }
-        if (employees.get(currentemployee) instanceof CommisionSeller){
+        if (employees.get(currentemployee) instanceof CommisionSeller) {
             System.out.println("do you want to sell instrument? 1 -yes  2-no ");
-            int yesorno=input.nextInt();
-            if (yesorno==1){
-            System.out.println("the availability  of instruments are given in the next line: ");
-            Store.report();
-            System.out.println("which instument do you want to sell please enter the number of instrument");
-            int numberOfInstrument=input.nextInt();
-            ((CommisionSeller) employees.get(currentemployee)).Sell(Store.store.get(numberOfInstrument));
-                ((CommisionSeller) employees.get(currentemployee)).setSalary(employees.get(currentemployee).getSalary()+
-                         ( (CommisionSeller)employees.get(currentemployee)).CommisionRate*Store.store.get(numberOfInstrument).getPrice());
-
-
+            int yesorno = input.nextInt();
+            if (yesorno == 1) {
+                System.out.println("the availability  of instruments are given in the next line: ");
+                Store.report();
+                System.out.println("which instument do you want to sell please enter the number of instrument");
+                int numberOfInstrument = input.nextInt();
+                ((CommisionSeller) employees.get(currentemployee)).Sell(Store.store.get(numberOfInstrument));
 
 
             }
 
         }
-        System.out.println(employees.get(currentemployee));
+        if (employees.get(currentemployee) instanceof HourlySeller) {
+            System.out.println("How many hours did you worked in the last month ?");
+            double hours = input.nextDouble();
+            ((HourlySeller) employees.get(currentemployee)).setHours(hours);
+        }
+
 
         while (true) {
             System.out.println(" Do you want to change your information?: 1- Yes  2- No thanks ");
@@ -107,9 +108,19 @@ public class Office {
 
 
             }
-            System.out.println(employees.get(currentemployee));
-        }
 
+            //System.out.println(employees.get(currentemployee));
+        }
+        System.out.println("do you need vacation ?1- yes  2 -No ");
+        {
+            int yesor = input.nextInt();
+            if (yesor == 1) {
+                System.out.println("How many days do you need vacation? ");
+                int vacations = input.nextInt();
+                employees.get(currentemployee).setVacation(vacations);
+            }
+        }
+        System.out.println(employees.get(currentemployee));
     }
 
     // this function is for manager;
@@ -158,8 +169,8 @@ public class Office {
                     String employmenttype = "hourlyseller";
                     System.out.println("enter basesalary :");
                     double basesalary = input.nextDouble();
-                  //  System.out.println("enter hours:");
-                 //   int hours = input.nextInt();
+                    //  System.out.println("enter hours:");
+                    //   int hours = input.nextInt();
                     HourlySeller hourlySeller = new HourlySeller(name, lastname, personalid, nationalid, password, username, education
                             , fathersname, employmenttype, basesalary);
                     employees.add(hourlySeller);
@@ -169,25 +180,24 @@ public class Office {
                 }
 
 
-
             }
         }
-        while (true){
-        System.out.println("do you want to add instrument? 1- yes  2 no ");
-         int yesorno=input.nextInt();
-        if(yesorno==1){
-            System.out.println("please enter the name of instrument :");
-            String nameOfInstrument=input.next();
-            System.out.println("please enter the price of instrument:");
-            double price=input.nextDouble();
-            Instrument instrument=new Instrument(nameOfInstrument,price);
-            if (yesorno==2){
+        while (true) {
+            System.out.println("do you want to add instrument? 1- yes  2 -no ");
+            int yesorno = input.nextInt();
+            if (yesorno == 1) {
+                System.out.println("please enter the name of instrument :");
+                String nameOfInstrument = input.next();
+                System.out.println("please enter the price of instrument:");
+                double price = input.nextDouble();
+                Instrument instrument = new Instrument(nameOfInstrument, price);
+                Store.report();
+            }
+            if (yesorno == 2) {
                 break;
             }
-        }
 
 
-            Store.report();
         }
 
     }
@@ -205,9 +215,9 @@ public class Office {
         return -1;
     }
 
-public static void addmanager (){
-        Manager manager =new Manager("Hanieh","Sadri",12345,"4710668000",
-                "hhhh","haniehsadri","manager","yousef","bachelore");
+    public static void addmanager() {
+        Manager manager = new Manager("Hanieh", "Sadri", 12345, "4710668000",
+                "hhhh", "haniehsadri", "manager", "yousef", "bachelore",5000);
         employees.add(manager);
 
     }
